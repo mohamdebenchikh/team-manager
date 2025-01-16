@@ -17,6 +17,12 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         //
+
+
+        $middleware->alias([
+            'teamowner' => \Mpociot\Teamwork\Middleware\TeamOwner::class,
+        ]);
+        
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

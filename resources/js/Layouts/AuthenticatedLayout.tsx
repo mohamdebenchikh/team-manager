@@ -9,6 +9,10 @@ import {
     SidebarTrigger,
 } from "@/Components/ui/sidebar";
 import { DarkModeToggle } from "@/Components/DarkModeToggle";
+import { TeamSwitcher } from "@/Components/TeamSwitcher";
+import { usePage } from "@inertiajs/react";
+import { PageProps } from "@/types";
+import NotificationsDropdown from "@/Components/NotificationsDropdown";
 
 
 export default function AuthenticatedLayout({
@@ -19,6 +23,7 @@ export default function AuthenticatedLayout({
     header?: React.ReactNode
 }) {
 
+    const { success } = usePage<PageProps>().props;
 
     return (
         <SidebarProvider>
@@ -30,7 +35,9 @@ export default function AuthenticatedLayout({
                         <Separator orientation="vertical" className="mr-2 h-4" />
                         {header}
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-4">
+                        <TeamSwitcher />
+                        <NotificationsDropdown />
                         <DarkModeToggle />
                     </div>
                 </header>

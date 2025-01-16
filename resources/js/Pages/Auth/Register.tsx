@@ -6,8 +6,10 @@ import { Label } from '@/Components/ui/label';
 import { Button } from '@/Components/ui/button';
 import { Input } from '@/Components/ui/input';
 
-export default function Register() {
+export default function Register({invitation_token}:{invitation_token?:string}) {
+
     const { data, setData, post, processing, errors, reset } = useForm({
+        invitation_token: invitation_token,
         name: '',
         email: '',
         password: '',
